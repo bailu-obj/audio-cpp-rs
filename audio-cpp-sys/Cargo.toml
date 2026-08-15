@@ -1,0 +1,46 @@
+[package]
+name = "audio-cpp-sys"
+description = "Low-level FFI bindings to audio.cpp"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+links = "audio_cpp"
+include = [
+    "build.rs",
+    "wrapper.h",
+    "include/**",
+    "src/**",
+    "audio.cpp/CMakeLists.txt",
+    "audio.cpp/cmake/**",
+    "audio.cpp/include/**",
+    "audio.cpp/src/**",
+    "audio.cpp/assets/**",
+    "audio.cpp/model_specs/**",
+    "audio.cpp/external/**",
+]
+
+[lib]
+name = "audio_cpp_sys"
+
+[dependencies]
+
+[build-dependencies]
+bindgen = "0.72"
+cc = { version = "1.2", features = ["parallel"] }
+cmake = "0.1"
+walkdir = "2"
+
+[features]
+default = ["full-models", "openmp"]
+full-models = []
+core-models = []
+openmp = []
+metal = []
+cuda = []
+hip = []
+vulkan = []
+native-cpu = []
+portable-cpu = []
+external-ggml = []

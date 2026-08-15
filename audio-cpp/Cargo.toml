@@ -1,0 +1,29 @@
+[package]
+name = "audio-cpp"
+description = "Safe Rust bindings for the audio.cpp generic voice runtime"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+readme = "../README.md"
+
+[dependencies]
+audio-cpp-sys = { workspace = true, default-features = false }
+thiserror = { workspace = true }
+
+[features]
+default = ["full-models", "openmp"]
+full-models = ["audio-cpp-sys/full-models"]
+core-models = ["audio-cpp-sys/core-models"]
+openmp = ["audio-cpp-sys/openmp"]
+metal = ["audio-cpp-sys/metal"]
+cuda = ["audio-cpp-sys/cuda"]
+hip = ["audio-cpp-sys/hip"]
+vulkan = ["audio-cpp-sys/vulkan"]
+native-cpu = ["audio-cpp-sys/native-cpu"]
+portable-cpu = ["audio-cpp-sys/portable-cpu"]
+external-ggml = ["audio-cpp-sys/external-ggml"]
+
+[lints]
+workspace = true

@@ -1,0 +1,21 @@
+[workspace]
+resolver = "2"
+members = ["audio-cpp-sys", "audio-cpp"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+repository = "https://github.com/bailu-obj/audio-cpp-rs"
+rust-version = "1.80"
+
+[workspace.dependencies]
+audio-cpp-sys = { path = "audio-cpp-sys", version = "0.1.0", default-features = false }
+thiserror = "2"
+
+[workspace.lints.rust]
+missing_docs = { level = "warn" }
+missing_debug_implementations = { level = "warn" }
+
+[workspace.lints.clippy]
+pedantic = { level = "warn" }
